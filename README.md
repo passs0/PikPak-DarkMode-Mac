@@ -1,4 +1,4 @@
-<h1 align="center">pikpak-darkmode-mac</h1>
+<h1 align="center">PikPak-DarkMode-Mac</h1>
 
 <p align="center">
   <strong>Seamless Adaptive Dark Mode for PikPak on macOS</strong><br/>
@@ -16,7 +16,7 @@
 
 > [!NOTE]
 > **AI-Generated Tool Disclosure**
-> **pikpak-darkmode-mac** is an AI-generated configuration and patching utility created with **Antigravity** (Google DeepMind) that brings true system-adaptive Dark Mode, instant dark chrome injection, and automated Electron ASAR integrity signing to the official macOS PikPak desktop application.
+> **PikPak-DarkMode-Mac** is an AI-generated configuration and patching utility created with **Antigravity** (Google DeepMind) that brings true system-adaptive Dark Mode, instant dark chrome injection, and automated Electron ASAR integrity signing to the official macOS PikPak desktop application.
 
 ---
 
@@ -35,7 +35,7 @@
 Install the standalone command directly to your `~/bin/` folder (no repo folder required):
 
 ```bash
-mkdir -p ~/bin && curl -fsSL https://raw.githubusercontent.com/passs0/pikpak-darkmode-mac/main/patch-pikpak-darkmode -o ~/bin/patch-pikpak-darkmode && chmod +x ~/bin/patch-pikpak-darkmode
+mkdir -p ~/bin && curl -fsSL https://raw.githubusercontent.com/passs0/PikPak-DarkMode-Mac/main/patch-pikpak-darkmode -o ~/bin/patch-pikpak-darkmode && chmod +x ~/bin/patch-pikpak-darkmode
 ```
 
 Then patch PikPak anytime simply by running:
