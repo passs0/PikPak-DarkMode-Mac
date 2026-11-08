@@ -1,9 +1,22 @@
-# PikPak Adaptive Dark Mode for macOS
+<h1 align="center">pikpak-darkmode-mac</h1>
 
-[![macOS](https://img.shields.io/badge/Platform-macOS-blue?logo=apple)](https://www.apple.com/macos/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<p align="center">
+  <strong>Seamless Adaptive Dark Mode for PikPak on macOS</strong><br/>
+  Automatic real-time system theme tracking, zero startup white flashes, and lossless media preservation for the official PikPak desktop app.
+</p>
 
-An automated patcher that brings true **system-adaptive Dark Mode** to the official PikPak desktop application on macOS.
+<p align="center">
+  <img src="https://img.shields.io/badge/macOS-Apple%20Silicon%20%26%20Intel-black?logo=apple" alt="macOS" />
+  <img src="https://img.shields.io/badge/target-PikPak%20Desktop-007AFF" alt="Target" />
+  <img src="https://img.shields.io/badge/engine-Electron%20%7C%20Dark%20Reader-blue" alt="Engine" />
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" /></a>
+</p>
+
+---
+
+> [!NOTE]
+> **AI-Generated Tool Disclosure**
+> **pikpak-darkmode-mac** is an AI-generated configuration and patching utility created with **Antigravity** (Google DeepMind) that brings true system-adaptive Dark Mode, instant dark chrome injection, and automated Electron ASAR integrity signing to the official macOS PikPak desktop application.
 
 ---
 
@@ -11,8 +24,8 @@ An automated patcher that brings true **system-adaptive Dark Mode** to the offic
 
 - **🌓 System-Adaptive**: Automatically follows your macOS Appearance setting (Light vs. Dark mode). Switches seamlessly in real time when macOS toggles between light and dark (e.g. at sunset/sunrise or in System Settings) without restarting the app.
 - **⚡ Zero White Flashes**: Injects instant dark background styles (`#181a1b`) into the window chrome and initial HTML loading screens to prevent any startup flash.
-- **🖼 Media Preservation**: Smartly preserves natural colors for videos, images, avatars, and file thumbnails.
-- **🛡 Auto Integrity & Signing**: Automatically recalculates the `ElectronAsarIntegrity` SHA-256 header hash in `Info.plist` and re-signs the application bundle using `codesign`.
+- **🖼️ Media Preservation**: Smartly preserves natural colors for videos, images, avatars, and file thumbnails.
+- **🛡️ Auto Integrity & Signing**: Automatically recalculates the `ElectronAsarIntegrity` SHA-256 header hash in `Info.plist` and re-signs the application bundle using `codesign`.
 - **📦 Single-File Standalone**: Runs as a self-contained executable with embedded Dark Reader. No secondary folders, clone directories, or local dependencies needed.
 
 ---
@@ -33,7 +46,7 @@ patch-pikpak-darkmode --force --launch
 
 ---
 
-## 🛠 Command-Line Options
+## 🛠️ Command-Line Options
 
 | Flag | Description |
 | :--- | :--- |
@@ -68,7 +81,15 @@ codesign --force --deep --sign - /Applications/PikPak.app
 
 ---
 
-## 🤝 Acknowledgements
+## 📁 Repository Structure
+
+- [`patch-pikpak-darkmode`](patch-pikpak-darkmode) — Standalone, single-file zero-dependency executable that extracts, patches, hashes, and re-signs `PikPak.app`.
+- [`patch_pikpak.py`](patch_pikpak.py) — Python source implementation of the ASAR unpacker, Dark Reader CSS injector, and integrity calculator.
+- [`patch.sh`](patch.sh) — Shell wrapper helper.
+
+---
+
+## 🙏 Credits & Acknowledgments
 
 - Powered by [Dark Reader](https://github.com/darkreader/darkreader) (MIT License) for real-time intelligent color inversion.
 - Powered by [@electron/asar](https://github.com/electron/asar) for archive inspection and extraction.
@@ -83,4 +104,4 @@ This is an independent community project and is **not** affiliated with, maintai
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
+Released under the [MIT License](LICENSE).
