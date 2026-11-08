@@ -13,36 +13,27 @@ An automated patcher that brings true **system-adaptive Dark Mode** to the offic
 - **⚡ Zero White Flashes**: Injects instant dark background styles (`#181a1b`) into the window chrome and initial HTML loading screens to prevent any startup flash.
 - **🖼 Media Preservation**: Smartly preserves natural colors for videos, images, avatars, and file thumbnails.
 - **🛡 Auto Integrity & Signing**: Automatically recalculates the `ElectronAsarIntegrity` SHA-256 header hash in `Info.plist` and re-signs the application bundle using `codesign`.
-- **🔄 Update-Resilient**: Easily re-apply the patch in one command whenever PikPak downloads an official update.
+- **📦 Single-File Standalone**: Runs as a self-contained executable with embedded Dark Reader. No secondary folders, clone directories, or local dependencies needed.
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Install & Run (One-Liner)
 
-### 1. Prerequisites
-
-Ensure you have [Node.js](https://nodejs.org/) installed (e.g., via Homebrew):
+Install the standalone command directly to your `~/bin/` folder (no repo folder required):
 
 ```bash
-brew install node
+mkdir -p ~/bin && curl -fsSL https://raw.githubusercontent.com/passs0/pikpak-darkmode-mac/main/patch-pikpak-darkmode -o ~/bin/patch-pikpak-darkmode && chmod +x ~/bin/patch-pikpak-darkmode
 ```
 
-### 2. Clone & Run
+Then patch PikPak anytime simply by running:
 
 ```bash
-git clone https://github.com/passs0/pikpak-darkmode-mac.git
-cd pikpak-darkmode-mac
-chmod +x patch.sh
-./patch.sh --force --launch
+patch-pikpak-darkmode --force --launch
 ```
-
-Dependencies (`@electron/asar`, `darkreader`) will be installed automatically on first run.
 
 ---
 
 ## 🛠 Command-Line Options
-
-You can pass options directly to `./patch.sh`:
 
 | Flag | Description |
 | :--- | :--- |
@@ -50,20 +41,14 @@ You can pass options directly to `./patch.sh`:
 | `--force`, `-f` | Close any running PikPak process without prompting |
 | `--app <path>` | Specify a custom path (defaults to `/Applications/PikPak.app`) |
 
-#### Example:
-```bash
-./patch.sh --force --launch
-```
-
 ---
 
 ## 🔄 After Official PikPak Updates
 
-When PikPak auto-updates or is reinstalled, the official installer overwrites `app.asar`. Simply re-run the patcher:
+When PikPak auto-updates or is reinstalled, the official installer overwrites `app.asar`. Simply re-run:
 
 ```bash
-cd pikpak-darkmode-mac
-./patch.sh --force --launch
+patch-pikpak-darkmode --force --launch
 ```
 
 ---
