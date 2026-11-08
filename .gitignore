@@ -1,0 +1,14 @@
+# Node dependencies
+node_modules/
+package-lock.json
+
+# Local generated files
+darkreader.js
+
+# macOS metadata
+.DS_Store
+
+# Temporary patch/backup artifacts
+*.bak
+*.original
+*.log
