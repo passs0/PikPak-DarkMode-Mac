@@ -45,9 +45,7 @@ cp -X /Applications/PikPak.app/Contents/Info.plist.original /Applications/PikPak
 xattr -cr /Applications/PikPak.app && codesign --force --deep --sign - /Applications/PikPak.app
 ```
 
-## AI Scope
-
-All code and documentation in this project were generated with [Google Antigravity](https://antigravity.google). Human involvement was limited to direction and hands-on testing.
+Built with [Google Antigravity](https://antigravity.google) — 100% AI-written code and docs, steered and tested by hand.
 
 ## License
 
