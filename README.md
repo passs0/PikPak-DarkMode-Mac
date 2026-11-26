@@ -14,13 +14,7 @@
 
 ---
 
-> [!NOTE]
-> **AI-Generated Tool Disclosure**
-> **PikPak-DarkMode-Mac** is an **AI-generated tool** created with **Antigravity** (Google DeepMind) that brings system-adaptive Dark Mode, instant dark chrome injection, and automated Electron ASAR integrity signing to the official macOS PikPak desktop app.
-
----
-
-## Features
+## What it does
 
 - **System-Adaptive:** Follows your macOS Appearance setting in real time without restarting the app.
 - **Zero White Flashes:** Injects instant dark background styles (`#181a1b`) into window chrome and initial HTML loading screens.
@@ -28,7 +22,7 @@
 - **Auto Integrity & Signing:** Recalculates `ElectronAsarIntegrity` SHA-256 hashes in `Info.plist` and re-signs `PikPak.app` with `codesign`.
 - **Single-File Standalone:** Self-contained executable with embedded Dark Reader—no clone directories or local dependencies needed.
 
-## Installation & Usage
+## Install
 
 Install the standalone command to `~/bin/` and run it (re-run anytime after PikPak auto-updates):
 
@@ -50,6 +44,8 @@ cp -X /Applications/PikPak.app/Contents/Resources/app.asar.original /Application
 cp -X /Applications/PikPak.app/Contents/Info.plist.original /Applications/PikPak.app/Contents/Info.plist
 xattr -cr /Applications/PikPak.app && codesign --force --deep --sign - /Applications/PikPak.app
 ```
+
+**AI scope:** All code and documentation were generated with [Google Antigravity](https://antigravity.google); human involvement was limited to direction and testing.
 
 ## License
 
