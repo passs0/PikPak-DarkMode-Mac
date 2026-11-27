@@ -6,7 +6,6 @@ Single-file standalone executable - requires no secondary directory.
 
 import os
 import sys
-import shutil
 import tempfile
 import subprocess
 import re
@@ -38,12 +37,14 @@ def run_cmd(cmd, cwd=None, check=True):
     return res
 
 def is_pikpak_running(app_path):
-    res = run_cmd(f'pgrep -f "{app_path}"', check=False)
+    proc_name = os.path.basename(app_path).removesuffix(".app")
+    res = run_cmd(["pgrep", "-x", proc_name], check=False)
     return res.returncode == 0
 
 def kill_pikpak(app_path):
     print("[*] Terminating running PikPak instances...")
-    run_cmd(f'pkill -f "{app_path}"', check=False)
+    proc_name = os.path.basename(app_path).removesuffix(".app")
+    run_cmd(["pkill", "-x", proc_name], check=False)
     import time
     time.sleep(1)
 
@@ -298,26 +299,26 @@ def main():
         new_hash = compute_asar_header_hash(new_asar_path)
         print(f"    New Hash: {new_hash}")
 
+        print("[*] Installing patched app.asar...")
+        run_cmd(["cp", "-X", new_asar_path, app_asar_path])
+
         print("[*] Updating ElectronAsarIntegrity in Info.plist...")
         update_info_plist_hash(info_plist_path, new_hash)
 
-        print("[*] Installing patched app.asar...")
-        run_cmd(f'cp -X "{new_asar_path}" "{app_asar_path}"')
-
     print("[*] Clearing quarantine attributes...")
-    run_cmd(f'xattr -cr "{app_path}"')
+    run_cmd(["xattr", "-cr", app_path])
 
     print("[*] Re-signing app bundle (ad-hoc codesign)...")
-    run_cmd(f'codesign --force --deep --sign - "{app_path}"')
+    run_cmd(["codesign", "--force", "--deep", "--sign", "-", app_path])
 
     print("[*] Verifying signature...")
-    run_cmd(f'codesign -v "{app_path}"')
+    run_cmd(["codesign", "-v", app_path])
 
     print("\n[SUCCESS] PikPak has been successfully patched with Adaptive Dark Mode!")
 
     if args.launch:
         print("[*] Launching PikPak...")
-        run_cmd(f'open -a "{app_path}"')
+        run_cmd(["open", "-a", app_path])
 
 if __name__ == "__main__":
     main()

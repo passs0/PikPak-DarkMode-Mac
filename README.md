@@ -20,15 +20,15 @@
 - **Zero White Flashes:** Injects instant dark background styles (`#181a1b`) into window chrome and initial HTML loading screens.
 - **Media Preservation:** Preserves natural colors for videos, images, avatars, and thumbnails via Dark Reader.
 - **Auto Integrity & Signing:** Recalculates `ElectronAsarIntegrity` SHA-256 hashes in `Info.plist` and re-signs `PikPak.app` with `codesign`.
-- **Single-File Standalone:** Self-contained executable with embedded Dark Reader—no clone directories or local dependencies needed.
+- **Single-File Standalone:** Self-contained executable with embedded Dark Reader (only requires Node.js / `npx` for `@electron/asar`).
 
 ## Install
 
-Install the standalone command to `~/bin/` and run it (re-run anytime after PikPak auto-updates):
+Requires Node.js (`npx`). Install the standalone command to `~/bin/` and run it (re-run anytime after PikPak auto-updates):
 
 ```zsh
 mkdir -p ~/bin && curl -fsSL https://raw.githubusercontent.com/passs0/PikPak-DarkMode-Mac/main/patch-pikpak-darkmode -o ~/bin/patch-pikpak-darkmode && chmod +x ~/bin/patch-pikpak-darkmode
-patch-pikpak-darkmode --force --launch
+~/bin/patch-pikpak-darkmode --force --launch
 ```
 
 | Flag | Description |
