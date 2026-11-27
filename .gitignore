@@ -12,3 +12,4 @@ darkreader.js
 *.bak
 *.original
 *.log
+__pycache__/
