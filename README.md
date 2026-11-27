@@ -45,6 +45,8 @@ cp -X /Applications/PikPak.app/Contents/Info.plist.original /Applications/PikPak
 xattr -cr /Applications/PikPak.app && codesign --force --deep --sign - /Applications/PikPak.app
 ```
 
+## Credits
+
 Built with [Google Antigravity](https://antigravity.google) — 100% AI-written code and docs, steered and tested by hand.
 
 ## License
